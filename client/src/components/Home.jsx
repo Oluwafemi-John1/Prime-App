@@ -17,7 +17,8 @@ const Home = () => {
         color: "white",
         padding: "10px",
         border: "none",
-        borderRadius: "5px"
+        borderRadius: "5px",
+        fontFamily: "'Playpen Sans', cursive"
     }
 
     return (
