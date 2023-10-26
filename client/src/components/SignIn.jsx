@@ -40,6 +40,7 @@ const SignIn = () => {
                             </svg>
                             <input placeholder="Password" title="Inpit title" name="input-name" type="password" className="input_field" id="password_field"/>
                         </div>
+                        <p><Link style={{color: "#a10035ff"}}>Forgot password?</Link></p>
                         <button title="Sign In" type="submit" className="sign-in_btn my-2">
                             <span>Continue</span>
                         </button>
