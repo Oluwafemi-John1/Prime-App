@@ -1,5 +1,6 @@
 import React from 'react';
-import pic from '../components/assets/images/Mobile login.gif'
+import { Link } from 'react-router-dom';
+import pic from '../components/assets/images/Mobile login.gif';
 
 const CreateAccount = () => {
     let mainDiv = {
@@ -18,7 +19,7 @@ const CreateAccount = () => {
                     <div className="col-lg-6 col-md-6 col-12 text-center" id='halfDiv'>
                         <img src={pic} alt="" className="img-fluid img-responsive" />
                     </div>
-                    <div className="col-lg-6 col-md-6 col-12" style={signUp}>
+                    <div className="col-lg-6 col-md-6 col-12" style={signUp} id='signUp'>
                         <h2 className="text-center mt-lg-5 mt-md-3 mt-4 text-decoration-underline" style={{color: "#a10035ff"}}>Create an Account</h2>
                         {/* Form */}
                         <div class="input_container my-4">
@@ -42,7 +43,7 @@ const CreateAccount = () => {
                             <span>Sign In</span>
                         </button>
 
-                          <div class="separator">
+                        <div class="separator">
                             <hr class="line"/>
                                 <span>Or</span>
                                 <hr class="line"/>
@@ -64,7 +65,8 @@ const CreateAccount = () => {
                                     </svg>
                                     <span>Sign In with Google</span>
                                 </button>
-                          </div>
+                                <p className="text-center">Have an account? <span><Link to='/signin'>Sign in</Link></span></p>
+                        </div>
                 </div>
             </div>
         </div>
