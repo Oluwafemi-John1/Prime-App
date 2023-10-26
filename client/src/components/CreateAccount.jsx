@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import pic from '../components/assets/images/Mobile login.gif'
 
 const CreateAccount = () => {
     let mainDiv = {
@@ -7,10 +8,12 @@ const CreateAccount = () => {
     }
   return (
     <>
-        <div className="container-fluid border border-danger border-5 p-lg-5">
-            <div className="container border border-2" style={mainDiv}>
-                <div className="row mx-auto">
-                    <div className="col-lg-6 col-md-6 col-12 border border-warning" id='halfDiv'></div>
+        <div className="container-fluid p-lg-5 mx-auto">
+            <div className="container shadow" style={mainDiv}>
+                <div className="row">
+                    <div className="col-lg-6 col-md-6 col-12 border border-warning text-center" id='halfDiv'>
+                        <img src={pic} alt="" className="img-fluid img-responsive" />
+                    </div>
                     <div className="col-lg-6 col-md-6 col-12 border border-info"></div>
                 </div>
             </div>
