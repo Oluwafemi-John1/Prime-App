@@ -32,7 +32,7 @@ const CreateAccount = () => {
         // alert("Hello")
         signInWithPopup(auth, provider)
         .then((result)=>{
-            console.log(result);
+            result ? console.log(result) : console.log("No result found");
         })
         .catch((error)=>{
             console.log(error);
