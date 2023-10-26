@@ -11,6 +11,7 @@ const CreateAccount = () => {
     let signUp = {
         padding: "5px 50px"
     }
+
   return (
     <>
         <div className="container-fluid p-lg-5 mx-auto">
@@ -47,7 +48,7 @@ const CreateAccount = () => {
                             <input placeholder="Password" title="Inpit title" name="input-name" type="password" className="input_field" id="password_field"/>
                         </div>
                         <button title="Sign In" type="submit" className="sign-in_btn my-2">
-                            <span>Sign In</span>
+                            <span>Continue</span>
                         </button>
 
                         <div className="separator">
