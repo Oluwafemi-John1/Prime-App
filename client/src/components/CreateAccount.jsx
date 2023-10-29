@@ -30,6 +30,11 @@ const CreateAccount = () => {
     const app = initializeApp(firebaseConfig)
     const auth = getAuth(app)
     const provider = new GoogleAuthProvider()
+
+    let lower = new RegExp(`(?=.*[a-z])`);
+    let upper = new RegExp(`(?=.*[A-Z])`);
+    let number = new RegExp(`(?=.*[0-9])`);
+    let length = new RegExp(`(?=.{8,})`);
     
     let formik = useFormik({
         initialValues: {
@@ -39,7 +44,25 @@ const CreateAccount = () => {
         },
         onSubmit:(values)=>{
             console.log(values);
-        }
+            let endpoint = 'http://localhost:5000/user'
+            axios.post(endpoint, values)
+            .then((result)=>{
+                console.log(result);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        },
+        validationSchema:yup.Schema({
+            email:yup.string().email("Must be a valid email").required("This field is required"),
+            fullname:yup.string().matches(/^[a-z ,.'-]+$/i,"Must be at least 2 characters").required("This field is required"),
+            password:yup.string()
+            .matches(lower,"Must include lowercase letter")
+            .matches(upper,"Must include uppercase letter")
+            .matches(number,"Must include a number")
+            .matches(length,"Must not be less than 8 characters")
+            .required("This field is required")
+        })
     })
 
     const signInG = () => {
@@ -51,20 +74,6 @@ const CreateAccount = () => {
         .catch((error)=>{
             console.log(error);
         })
-    }
-
-    const signIn = () => {
-        // let endpoint = 'http://localhost:5000/user'
-        // let payload = {
-        //     test: "hi"
-        // }
-        // axios.post(endpoint, payload)
-        // .then((result)=>{
-        //     console.log(result);
-        // })
-        // .catch((err)=>{
-        //     console.log(err);
-        // })
     }
 
   return (
@@ -103,7 +112,7 @@ const CreateAccount = () => {
                                 </svg>
                                 <input placeholder="Password" name="password" onChange={formik.handleChange} value={formik.values.password} type="password" className="input_field" id="password_field"/>
                             </div>
-                            <button title="Sign In" type="submit" className="sign-in_btn my-2" onClick={signIn}>
+                            <button title="Sign In" type="submit" className="sign-in_btn my-2">
                                 <span>Continue</span>
                             </button>
                         </form>
